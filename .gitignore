@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Archivi di release (lo zip lo si allega alle Release, non al repo)
+*.zip
+
+# Editor
+.vscode/
+.idea/
