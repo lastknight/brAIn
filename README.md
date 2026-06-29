@@ -55,7 +55,7 @@ Se non hai mai usato Claude Code: installalo, aprilo, scrivici "ciao". Quando ti
 
 ## Installazione
 
-Il modo più veloce: apri Claude Code, **dagli lo zip del progetto** e scrivi `installa questa skill`. Fa tutto lui. Poi **chiudi e riapri** Claude Code (le skill si attivano al riavvio) e digita:
+Il modo più veloce: scarica **[`brAIn.zip` dall'ultima release](https://github.com/lastknight/brAIn/releases/latest)**, apri Claude Code, **dagli lo zip** e scrivi `installa questa skill`. Fa tutto lui. Poi **chiudi e riapri** Claude Code (le skill si attivano al riavvio) e digita:
 
 ```
 /learn

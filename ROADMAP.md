@@ -1,11 +1,10 @@
 # BrAIn — stato e da fare
 
-## 1. Repo GitHub  ⏳ da fare
-- [ ] Creare `lastknight/brAIn` (pubblico) e fare il primo push.
-- [ ] Aggiungere `LICENSE` (MIT — il README già la dichiara).
+## 1. Repo GitHub  ✅ fatto
+- [x] Creato `lastknight/brAIn` (pubblico) e primo push → https://github.com/lastknight/brAIn
+- [x] `LICENSE` MIT (il README la dichiara).
 - [x] `.gitignore` (esclude `.DS_Store` e gli zip).
-- [ ] Creare lo zip di release (`learn/` + `INSTALLA.md`) e allegarlo a una Release.
-- Struttura attuale: `README.md` · `INSTALLA.md` · `ROADMAP.md` · `.gitignore` · `learn/SKILL.md`.
+- [x] Zip di release (`learn/` + `INSTALLA.md`) allegato a `v1.0.0` → /releases/latest
 
 ## 2. README dichiarativo  ✅ fatto
 - [x] Cos'è un agente cognitivo (con tabella prima/dopo, zero gergo).
@@ -15,12 +14,12 @@
 - [x] I razionali di fondo (testo non DB, un fatto un file, MERGE, memoria≠brain, poche regole).
 - [x] Buone norme · I tuoi dati (privacy con onestà) · struttura file · licenza · crediti.
 
-## 3. Installazione "dai lo zip a Claude"  ✅ fatto (manca lo zip)
+## 3. Installazione "dai lo zip a Claude"  ✅ fatto
 - [x] Path primario: avvii Claude Code, gli dai lo zip, dici "installa".
 - [x] `INSTALLA.md` con blocco "ISTRUZIONI PER CLAUDE" (payload auto-installante).
 - [x] Per-piattaforma (drag&drop desktop / path nel CLI) + "riavvia Claude Code".
 - [x] `cp -R` manuale come fallback.
-- [ ] Generare materialmente lo zip da allegare (vedi punto 1).
+- [x] Zip generato e allegato alla release v1.0.0.
 
 ## 4. Fix on-ramp nella skill  ✅ fatto
 - [x] Stage 0 "💥 SENTI IL PROBLEMA": far sentire la statelessness prima di costruire.
