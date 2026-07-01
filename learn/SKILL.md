@@ -183,8 +183,11 @@ name: ricorda
 description: "Salva al volo un fatto in memoria. /ricorda <il fatto>."
 user-invocable: true
 argument-hint: "<il fatto da ricordare>"
+model: claude-sonnet-4-6
+effort: medium
 ---
 # /ricorda
+0. Se il modello attivo non è `claude-sonnet-4-6`, cambialo (`/model claude-sonnet-4-6`) e riparti — questa skill è ancorata a lì.
 1. Scegli il tipo del fatto: user / feedback / project / reference.
 2. Crea ~/.claude/memory/<tipo>-<slug>.md col frontmatter giusto e il fatto nel corpo.
 3. Aggiungi una riga in ~/.claude/memory/MEMORY.md.
@@ -194,6 +197,9 @@ argument-hint: "<il fatto da ricordare>"
 mkdir -p ~/.claude/skills/ricorda
 # crea ~/.claude/skills/ricorda/SKILL.md con l'esempio sopra
 ```
+
+> **Nota didattica — scelta modello.** `/ricorda` gira sempre su **`claude-sonnet-4-6`** con **`effort: medium`**. Non l'alias generico `sonnet` (risolverebbe al Sonnet corrente = Sonnet 5), non un modello più grande. Motivo: `/ricorda` fa una cosa piccola e ripetibile — smistare UN fatto in UN file col frontmatter giusto. Un modello ancorato a una versione precisa produce lo stesso output oggi e fra sei mesi; se cambia il Sonnet di default sotto di te, il tuo agente comincia a scrivere in modo leggermente diverso senza che tu te ne accorga. **Regola generale del corso**: quando una skill fa lavoro meccanico e sensibile a stabilità (memoria, indici, registri), forzi il modello. Quando fa lavoro creativo (scrivere nella tua voce), lasci lo standard.
+
 **✅ VERIFICA** — questa è la **prima skill** che creiamo: avvisalo che le skill nuove si attivano solo **riavviando Claude Code** (chiudi e riapri), altrimenti sembra che non esista. Dopo il riavvio: `/ricorda il cliente Bianchi preferisce essere chiamato di mattina` crea il file e la riga, senza che tu tocchi niente. Differenza con `/decode`: `/ricorda` è UN fatto a mano, `/decode` ingerisce una fonte intera.
 
 ---
@@ -368,8 +374,11 @@ name: sogna
 description: "Rivedi le conversazioni passate e distillane fatti e sapere in memoria e brain. /sogna."
 user-invocable: true
 argument-hint: ""
+model: claude-sonnet-4-6
+effort: medium
 ---
 # /sogna
+0. Se il modello attivo non è `claude-sonnet-4-6`, cambialo (`/model claude-sonnet-4-6`) e riparti.
 1. Trova i log delle sessioni recenti di Claude Code (i file in ~/.claude/projects/.../*.jsonl).
 2. Salta quelle già consolidate: leggi il registro ~/.claude/memory/.sogna-fatte.md.
 3. Per ogni sessione NUOVA, come fa /decode:
@@ -381,6 +390,8 @@ argument-hint: ""
 ```
 
 **💡 SPIEGA** — stesso motore di `/decode`, fonte diversa: invece di un documento esterno, l'agente rilegge **se stesso** — le conversazioni che avete avuto — e ne salva quello che conta. Il **registro** (`.sogna-fatte.md`) è la chiave: tiene traccia di cosa è già stato digerito, così ogni volta lavora solo il nuovo e non duplica. È l'agente che impara mentre dorme: tu chiudi la giornata, lui consolida.
+
+> **Nota didattica — scelta modello.** Come `/ricorda`, anche `/sogna` è ancorata a **`claude-sonnet-4-6`** con **`effort: medium`**. Non l'alias generico `sonnet`, non Opus. Motivo: `/sogna` fa lavoro sensibile a stabilità — legge sessioni e scrive in file di memoria e brain che si stratificano nel tempo. Se domani il Sonnet di default cambia, il tuo agente comincerebbe a distillare in modo leggermente diverso, e col passare dei mesi la tua memoria diventa una torta a strati con voci diverse. Ancorandola a 4.6 medium ottieni ripetibilità: rilanci lo stesso `/sogna` fra tre mesi e produce lo stesso risultato. Diverso da `/decode`, che invece lasci sullo standard: lì lavori su fonti eterogenee (PDF lunghi, chat da mille messaggi), la potenza del modello serve.
 
 **🛠️ COSTRUISCI**:
 ```

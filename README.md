@@ -103,7 +103,8 @@ A fine corso hai sei comandi tuoi. Cinque li costruisci durante il corso, più `
 **Cosa fa:** prende UNA cosa e la mette in memoria nel posto giusto, con la sua etichetta.
 **Quando:** quando salta fuori un fatto che vuoi non dimenticare.
 **Esempio:** `/ricorda il cliente Bianchi preferisce essere chiamato di mattina`
-**Razionale:** scrivere a mano file e indici è una rottura; questo comando lo fa per te. È il modo *manuale* di imparare: un fatto per volta.
+**Modello:** `claude-sonnet-4-6` + `effort: medium` (ancorato, non l'alias `sonnet`).
+**Razionale:** scrivere a mano file e indici è una rottura; questo comando lo fa per te. È il modo *manuale* di imparare: un fatto per volta. Ancoriamo il modello a una versione precisa perché è lavoro meccanico e ripetitivo — vuoi lo stesso output oggi e fra sei mesi.
 
 ### `/scrivi` — produce nella tua voce
 **Cosa fa:** scrive un testo unendo tre cose — la tua **voce**, un **formato** d'uscita, e i **fatti** dal tuo brain.
@@ -121,7 +122,8 @@ A fine corso hai sei comandi tuoi. Cinque li costruisci durante il corso, più `
 **Cosa fa:** rilegge le tue conversazioni passate con Claude Code e ne distilla fatti e sapere, tenendo un registro di quelle già lavorate per non duplicare.
 **Quando:** a fine giornata o ogni tanto, per consolidare quello che è emerso parlandoci.
 **Esempio:** `/sogna`
-**Razionale:** stesso motore di `/decode`, ma la fonte sei *tu*. È l'agente che impara mentre "dorme": tu chiudi, lui consolida.
+**Modello:** `claude-sonnet-4-6` + `effort: medium` (ancorato, non l'alias `sonnet`).
+**Razionale:** stesso motore di `/decode`, ma la fonte sei *tu*. È l'agente che impara mentre "dorme": tu chiudi, lui consolida. Come `/ricorda`, ancoriamo il modello: la memoria e il brain si stratificano nel tempo, e se domani cambia il Sonnet di default la tua memoria diventa una torta a strati con voci diverse. Diverso da `/decode`, che invece lasci sullo standard perché lavora su fonti eterogenee dove serve più potenza.
 
 ### `/backup` — non perdere nulla
 **Cosa fa:** salva tutto l'agente in uno zip datato in `~/claude-backups/`.
@@ -140,6 +142,7 @@ I tre modi di imparare: **`/ricorda`** (a mano, un fatto) · **`/decode`** (da u
 - **Memoria ≠ Brain.** La **memoria** ricorda *fatti che capitano* ("la causa di Rossi ha udienza il 12/07"). Il **brain** sa *cose che restano vere* ("come si struttura un parere"). Due scopi, due cartelle.
 - **MERGE, mai sovrascrivere.** Quando l'agente impara, legge prima quello che c'è e **somma**. Non cancella il passato. Così cresce invece di ricominciare.
 - **Poche regole vere.** Tre regole rispettate valgono più di venti ignorate. Vale per le regole dell'agente come per le tue preferenze.
+- **Ancora il modello dove serve stabilità.** Per il lavoro *meccanico e ripetitivo* — smistare fatti in memoria (`/ricorda`), rileggere sessioni e distillarle (`/sogna`) — ancoriamo il comando a un modello preciso (`claude-sonnet-4-6` + `effort: medium`), non all'alias generico `sonnet`. Motivo: se il Sonnet di default cambia sotto di te (oggi è Sonnet 5, prima era Sonnet 4.6), il tuo agente comincia a scrivere in modo leggermente diverso e la memoria diventa una torta a strati con voci diverse. Per il lavoro *creativo o eterogeneo* (`/scrivi`, `/decode`) lasci lo standard: lì la potenza serve.
 
 ---
 
